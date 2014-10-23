@@ -74,6 +74,7 @@
             <li><a href="/items">Novos Items</a></li>
             <li><a href="/item_categories">Nova Categoria</a></li>
           </ul>
+          <li><%= link_to " Vendas", "/sales"  %></li>
           <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete %></li>
           <%end%>
         </li>
@@ -93,19 +94,26 @@
         
       </div><!--/row-->
 
-      <div class="container">
+      
+<div class="container">
   <hr>
         <div class="text-center center-block">
             <br />
-                <a href="https://www.facebook.com"><i id="social" class="fa fa-facebook-square fa-5x social-fb"></i></a>
-              <a href="https://twitter.com/"><i id="social" class="fa fa-twitter-square fa-5x social-tw"></i></a>
-              <a href="https://plus.google.com"><i id="social" class="fa fa-google-plus-square fa-5x social-gp"></i></a>
-              <a href="https://hotmail.com"><i id="social" class="fa fa-envelope-square fa-5x social-em"></i></a>
+                <a href="https://www.facebook.com"><i id="social" class="fa fa-facebook-square fa-4x social-fb"></i></a>
+              <a href="https://twitter.com"><i id="social" class="fa fa-twitter-square fa-4x social-tw"></i></a>
+              <a href="https://plus.google.com"><i id="social" class="fa fa-google-plus-square fa-4x social-gp"></i></a>
+              <a href="mailto:bootsnipp@gmail.com"><i id="social" class="fa fa-envelope-square fa-4x social-em"></i></a>
 </div>
     <hr>
 </div>
 
 <br />
+
+<!-- Social Footer, Single Coloured -->
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- // -->
+
 
       <footer>
         <p>&copy; Art Nissi 2014</p>

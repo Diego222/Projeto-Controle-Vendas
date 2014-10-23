@@ -1,6 +1,8 @@
 PushvendorPos::Application.routes.draw do
 
   
+  resources :homes
+
   resources :item_categories
 
   resources :reports do
@@ -58,17 +60,29 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
+  #devise_for :usuarios
+  #resources :usuaros do
+   # collection do
+    #  post 'new_usuario'
+    #end
+  #end
+
   devise_for :usuarios
-  resources :usuaros do
-    collection do
-      post 'new_usuario'
-    end
+ #fazer o login devise home
+   devise_scope :usuario do
+   authenticated :usuario do
+  root 'sales#index', as: :authenticated_root
   end
+end
+
+  #unauthenticated do
+   # root 'devise/sessions#new', as: :unauthenticated_root
+#end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'dashboard#index'
+  root 'homes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
