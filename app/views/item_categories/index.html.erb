@@ -3,8 +3,8 @@
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Nome</th>
+            <th>Descrição</th>
           </tr>
         </thead>
 
@@ -13,7 +13,7 @@
             <tr>
               <td><%= item_category.name %></td>
               <td><%= item_category.description %></td>
-              <td><%= link_to 'Show', edit_item_category_path(item_category) %> | <%= link_to 'Destroy', item_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Detalhes', edit_item_category_path(item_category) %> | <%= link_to 'Excluir', item_category, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -26,5 +26,5 @@
 </div>
 
     <div class="col-sm-12">
-      <%= link_to 'New Item Category', new_item_category_path, :class => "btn btn-success btn-lg active" %>
+      <%= link_to 'Nova Categoria', new_item_category_path, :class => "btn btn-success btn-lg active" %>
     </div>

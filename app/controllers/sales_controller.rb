@@ -33,7 +33,7 @@ class SalesController < ApplicationController
      # redirect_to @sale, notice: 'You do not have permission to delete sales.'
     #end
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Sale has been deleted.'}
+      format.html { redirect_to sales_url, notice: 'Venda excluída.'}
       format.json { head :no_content }
     end
   end

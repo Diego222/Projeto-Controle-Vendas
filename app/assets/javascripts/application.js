@@ -12,4 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.maskedinput
+//= require bootstrap-datepicker
+//= require bootstrap-select
 //= require_tree .
+
+
+
+
+$(document).ready(function() {
+	$(".campo_telefone").mask("(99) 9999-9999");
+});
+
+$(document).ready(function() {
+	$(".campo_cep").mask("99.999-999");
+});

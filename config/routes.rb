@@ -1,6 +1,8 @@
 PushvendorPos::Application.routes.draw do
 
   
+  resources :transportadoras
+
   resources :homes
 
   resources :item_categories
