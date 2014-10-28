@@ -5,7 +5,7 @@ class TransportadorasController < ApplicationController
   # GET /transportadoras
   # GET /transportadoras.json
   def index
-    @transportadoras = Transportadora.all.page(params['page'])
+    @transportadoras = Transportadora.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /transportadoras/1
@@ -29,7 +29,7 @@ class TransportadorasController < ApplicationController
 
     respond_to do |format|
       if @transportadora.save
-        format.html { redirect_to @transportadora, notice: 'Transportadora was successfully created.' }
+        format.html { redirect_to '/transportadoras', notice: 'Transportadora cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @transportadora }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TransportadorasController < ApplicationController
   def update
     respond_to do |format|
       if @transportadora.update(transportadora_params)
-        format.html { redirect_to @transportadora, notice: 'Transportadora was successfully updated.' }
+        format.html { redirect_to '/transportadoras', notice: 'Transportadora atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @transportadora }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class TransportadorasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transportadora_params
-      params.require(:transportadora).permit(:nome, :endereco, :cidade, :estado, :telefone, :email)
+      params.require(:transportadora).permit(:nome, :endereco, :cidade, :estado, :telefone, :email, :cep)
     end
 end

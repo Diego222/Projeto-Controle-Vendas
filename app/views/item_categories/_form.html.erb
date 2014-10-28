@@ -1,12 +1,13 @@
-<%= form_for @item_category, :html => { :class => "form-horizontal item_category" } do |f| %>
+<div class="panel panel-default">
+<div class="panel-heading">Categoria do Item</div>
+<div class="panel-body">
+<%= form_for(@item_category) do |f| %>
     <% if @item_category.errors.any? %>
     <div id="error_explanation">
     Há erros no formulário, por favor verifique.
     </div>
     <% end %>
 
-<div class="panel panel-default">
-  <div class="panel-body">
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
