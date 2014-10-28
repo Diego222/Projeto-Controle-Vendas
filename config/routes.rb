@@ -1,6 +1,8 @@
 PushvendorPos::Application.routes.draw do
 
   
+  resources :fornecedors, :path => "fornecedores"
+
   resources :transportadoras
 
   resources :homes
@@ -30,7 +32,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :customers
+  resources :customers, :path => "clientes"
 
   resources :items do
     get 'search'
