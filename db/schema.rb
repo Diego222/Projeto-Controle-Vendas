@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028171359) do
+ActiveRecord::Schema.define(version: 20141029140319) do
 
   create_table "customers", force: true do |t|
     t.string   "first_name"
@@ -83,6 +83,18 @@ ActiveRecord::Schema.define(version: 20141028171359) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pedidos", force: true do |t|
+    t.integer  "fornecedor_id"
+    t.string   "data"
+    t.string   "pedido"
+    t.text     "observacoes"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pedidos", ["fornecedor_id"], name: "index_pedidos_on_fornecedor_id", using: :btree
 
   create_table "sales", force: true do |t|
     t.decimal  "amount",           precision: 8,  scale: 2

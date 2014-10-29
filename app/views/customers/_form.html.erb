@@ -1,8 +1,13 @@
-<div class="panel panel-default">
+<%= form_for(@customer) do |f| %>
+    <% if @customer.errors.any? %>
+    <div id="error_explanation">
+    Há erros no formulário, por favor verifique.
+    </div>
+    <% end %>
+
+  <div class="panel panel-default">
   <div class="panel-heading">Cliente</div>
   <div class="panel-body">
-  <%= form_for(@customer) do |f| %>
-    <%= render :partial => 'template/form_errors', :object => @customer %>
 
       <div class="row">
         <div class="col-sm-6">
@@ -19,6 +24,7 @@
           <div class="col-sm-6">
             <label>Telefone</label>
             <%= f.text_field :phone_number, :class => "campo_telefone form-control", :placeholder => "Telefone" %>
+            <%= error_tag @customer, :phone_number %>
           </div>
           <div class="col-sm-6">
             <label>Email</label>

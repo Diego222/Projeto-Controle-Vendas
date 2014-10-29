@@ -27,3 +27,11 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$(".campo_cep").mask("99.999-999");
 });
+
+$(document).ready(function() {
+	$('.campo_fax').mask("999 9999-9999")
+});	
+
+$(document).ready(function() {
+	$('.datepicker').datepicker()
+});	

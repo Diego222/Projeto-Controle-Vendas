@@ -1,6 +1,8 @@
 PushvendorPos::Application.routes.draw do
 
   
+  resources :pedidos
+
   resources :fornecedors, :path => "fornecedores"
 
   resources :transportadoras
@@ -41,7 +43,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :sales do
+  resources :sales, :path => "vendas" do
     collection do
       get 'update_line_item_options'
       get 'update_customer_options'

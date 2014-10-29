@@ -4,6 +4,6 @@ class PedidoMailer < ActionMailer::Base
   def pedido_email(pedido)
     @pedido = pedido
     @url  = 'http://google.com'
-    mail(to: @pedido.email, subject: 'Pedido')
+    mail(to: @pedido.email, subject: 'Solicitãção de Item (Art Nissi)')
   end
 end
