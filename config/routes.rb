@@ -11,7 +11,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :item_categories
 
-  resources :reports do
+  resources :reports, :path => "relatorios" do
     collection do
       get 'total_report'
       get 'date_range_report'
@@ -43,7 +43,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :sales, :path => "vendas" do
+  resources :sales do
     collection do
       get 'update_line_item_options'
       get 'update_customer_options'
