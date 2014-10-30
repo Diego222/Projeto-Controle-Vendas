@@ -4,26 +4,15 @@
         <thead>
           <tr>
             <th>Empresa</th>
-            <th>Endereço</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Cep</th>
-            <th>Telefone</th>
             <th>Email</th>
-            <th>Fax</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
         <tbody>
           <% @fornecedors.each do |fornecedor| %>
               <td><%= fornecedor.empresa %></td>
-              <td><%= fornecedor.endereco %></td>
-              <td><%= fornecedor.cidade %></td>
-              <td><%= fornecedor.estado %></td>
-              <td><%= fornecedor.cep %></td>
-              <td><%= fornecedor.telefone %></td>
               <td><%= fornecedor.email %></td>
-              <td><%= fornecedor.fax %></td>
               <td><%= link_to 'Detalhes', edit_fornecedor_path(fornecedor) %> | <%= link_to 'Excluir', fornecedor, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             </tr>
           <% end %>

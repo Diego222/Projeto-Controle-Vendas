@@ -35,3 +35,11 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$('.datepicker').datepicker()
 });	
+
+$(document).ready(function() {
+	$(".campo_cpf").mask("999.999.999-99");
+});
+
+$(document).ready(function() {
+	$(".campo_identidade").mask("99.999.999-9");
+});

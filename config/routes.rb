@@ -1,6 +1,8 @@
 PushvendorPos::Application.routes.draw do
 
   
+  resources :funcionarios
+
   resources :pedidos
 
   resources :fornecedors, :path => "fornecedores"

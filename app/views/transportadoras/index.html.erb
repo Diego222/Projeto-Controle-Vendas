@@ -4,10 +4,7 @@
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Endereço</th>
             <th>Cidade</th>
-            <th>Cep</th>
-            <th>Telefone</th>
             <th>Email</th>
             <th>Ações</th>
           </tr>
@@ -16,10 +13,7 @@
         <tbody>
           <% @transportadoras.each do |transportadora| %>
               <td><%= transportadora.nome %></td>
-              <td><%= transportadora.endereco %></td>
               <td><%= transportadora.cidade %></td>
-              <td><%= transportadora.cep %></td>
-              <td><%= transportadora.telefone %></td>
               <td><%= transportadora.email %></td>
               <td><%= link_to 'Detalhes', edit_transportadora_path(transportadora) %> | <%= link_to 'Excluir', transportadora, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             </tr>

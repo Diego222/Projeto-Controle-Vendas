@@ -47,9 +47,15 @@
 				margin-top: 10px;
 			}
 			#content5{
-				width: 650px;
+				width: 700px;
 				float: right;
 				text-align: right;
 				margin-top: 10px;
+			}
+			#content6{
+				width: 25px;
+				float: right;
+				text-align: right;
+				margin-top: -20px;
 			}
 			

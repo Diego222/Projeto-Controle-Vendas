@@ -54,8 +54,6 @@
             <li><a href="/clientes">Lista de Clientes</a></li>
             <li><a href="/fornecedores">Lista de Fornecedores</a></li>
             <li><a href="/funcionarios">Lista de Funcionários</a></li>
-            <li><a href="/transportadoras">Lista de Transportadoras</a></li>
-            <li><a href="/pedidos">Lista de Pedidos</a></li>
           </ul>
 
           <li class="dropdown">
@@ -64,7 +62,6 @@
             <li><a href="/clientes/new"> Cadastrar Clientes</a></li>
             <li><a href="/fornecedores/new">Cadastrar Fornecedores</a></li>
             <li><a href="/funcionarios/new">Cadastrar Funcionários</a></li>
-            <li><a href="/transportadoras/new">Cadastrar Transportadoras</a></li>
           </ul>
 
           <li class="dropdown">
@@ -73,11 +70,12 @@
             <li><a href="/items">Novos Items</a></li>
             <li><a href="/item_categories">Nova Categoria</a></li>
           </ul>
-          <li><%= link_to " Vendas", "/vendas"  %></li>
-          <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete %></li>
+          <li><%= link_to " Pedidos", "/pedidos"  %></li>
+          <li><%= link_to " Vendas", "/sales"  %></li>
+          
 
-              
-              
+              <div id="content6">
+              <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete %></li></div>
               <div id="content2">
               <li><a href="mailto:bootsnipp@gmail.com"><i id="social" class="fa fa-envelope-square fa-2x social-em"></i></a></li></div>
               <div id="content3">
@@ -86,6 +84,8 @@
                 <li><a href="https://twitter.com"><i id="social" class="fa fa-twitter-square fa-2x social-tw"></i></a></li></div>
               <div id="content5">
                 <li><a href="https://www.facebook.com"><i id="social" class="fa fa-facebook-square fa-2x social-fb"></i></a></li></div>
+                
+
 
 
 

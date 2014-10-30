@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029140319) do
+ActiveRecord::Schema.define(version: 20141030132835) do
 
   create_table "customers", force: true do |t|
     t.string   "first_name"
@@ -38,6 +38,22 @@ ActiveRecord::Schema.define(version: 20141029140319) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+  end
+
+  create_table "funcionarios", force: true do |t|
+    t.string   "nome"
+    t.string   "data_nascimento"
+    t.string   "endereco"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
+    t.string   "telefone"
+    t.string   "admissao"
+    t.string   "cargo"
+    t.string   "cpf"
+    t.string   "identidade"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "homes", force: true do |t|
@@ -106,7 +122,10 @@ ActiveRecord::Schema.define(version: 20141029140319) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "funcionario_id"
   end
+
+  add_index "sales", ["funcionario_id"], name: "index_sales_on_funcionario_id", using: :btree
 
   create_table "store_configurations", force: true do |t|
     t.string   "store_name"

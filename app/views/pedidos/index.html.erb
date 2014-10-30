@@ -6,8 +6,7 @@
             <th>Fornecedor</th>
             <th>Data</th>
             <th>Pedido</th>
-            <th>Observações</th>
-            <th>Email</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
@@ -16,8 +15,6 @@
               <td><%= pedido.fornecedor.empresa %></td>
               <td><%= pedido.data%></td>
               <td><%= pedido.pedido %></td>
-              <td><%= pedido.observacoes %></td>
-              <td><%= pedido.email %></td>
               <td><%= link_to 'Detalhes', edit_pedido_path(pedido) %> | <%= link_to 'Excluir', pedido, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             </tr>
           <% end %>
