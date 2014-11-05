@@ -19,7 +19,7 @@
           <tr class="<%= sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : '' %>">
             <td><%= sale.id %></td>
             <td><%= sale.created_at.strftime("%d/%m/%y %I:%M:%S %p")  %></td>
-            <td><%= sale.customer.blank? ? '-' : sale.customer.first_name %></td>
+            <td><%= sale.customer.blank? ? '-' : sale.customer.nome %></td>
             <td><%= number_to_currency sale.total_amount %></td>
             <td><%= number_to_currency sale.paid_total %></td>
             <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Pago" : "#{number_to_currency sale.remaining_balance}" %></td>
@@ -33,6 +33,8 @@
       </div>
   </div>
 </div>
+
+
 
 <div class="panel panel-default">
   <!-- Default panel contents -->

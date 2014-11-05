@@ -17,8 +17,8 @@
       <% unless @available_customers.blank? %>
         <% for customer in @available_customers %>
           <tr>
-            <td><%= customer.first_name %></td>
-            <td><%= customer.last_name %></td>
+            <td><%= customer.nome %></td>
+            <td><%= customer.sobrenome %></td>
             <td><%= customer.phone_number %></td>
             <td><%= customer.email_address %></td>
             <td class="add_to_current_sale"><%= link_to url_for(:controller => 'sales', :action => 'create_customer_association', :customer_id => customer.id, :sale_id => @sale.id), :remote => true do %><p><span class="glyphicon glyphicon-plus"></span></p><% end %></td>

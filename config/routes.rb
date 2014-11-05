@@ -79,7 +79,7 @@ PushvendorPos::Application.routes.draw do
  #fazer o login devise home
    devise_scope :usuario do
    authenticated :usuario do
-  root 'sales#index', as: :authenticated_root
+  root 'dashboard#index', as: :authenticated_root
   end
 end
 

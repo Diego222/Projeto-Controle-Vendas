@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030132835) do
+ActiveRecord::Schema.define(version: 20141030160952) do
 
   create_table "customers", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "email_address"
     t.string   "phone_number"
     t.string   "address"
@@ -25,6 +23,8 @@ ActiveRecord::Schema.define(version: 20141030132835) do
     t.boolean  "published",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nome"
+    t.string   "sobrenome"
   end
 
   create_table "fornecedors", force: true do |t|

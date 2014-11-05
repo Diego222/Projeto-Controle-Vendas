@@ -313,10 +313,13 @@ class SalesController < ApplicationController
 
     def populate_items
       @available_items = Item.all(:conditions => ['published', true], :limit => 5)
+      #@available_items = Item.paginate(:page => params[:page], :per_page => 3).where(:published => true)
+     
     end
 
     def populate_customers
-      @available_customers = Customer.all(:conditions => ['published', true], :limit => 5)
+     # @available_customers = Customer.all(:conditions => ['published', true], :limit => 5)
+      @available_customers = Customer.paginate(:page => params[:page], :per_page => 20).where(:published => true)
     end
 
     def remove_item_from_stock(item_id, quantity)

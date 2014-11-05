@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # @items =  Item.where(["name LIKE :tag", {:tag => params[:search][:item_name]}])
+     #@items =  Item.where(["name LIKE :tag", {:tag => params[:search][:item_name]}])
     @items =  Item.find(:all, :conditions => ['name LIKE ?', "%#{params[:search][:item_name]}%"])
   end
 

@@ -15,6 +15,7 @@
 //= require jquery.maskedinput
 //= require bootstrap-datepicker
 //= require bootstrap-select
+//= require jquery.searcher
 //= require_tree .
 
 
@@ -43,3 +44,12 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$(".campo_identidade").mask("99.999.999-9");
 });
+
+$("#tabledata").searcher({
+    inputSelector: "#tablesearchinput"
+    // itemSelector (tbody > tr) and textSelector (td) already have proper default values
+});
+
+
+
+

@@ -2,7 +2,7 @@ class ConfigurationsController < ApplicationController
 
 	def index
 		@configuration = StoreConfiguration.find(1)
-    authorize! :read, @configuration
+    #authorize! :read, @configuration
 	end
 
 	def update

@@ -11,8 +11,8 @@
         <tbody>
           <% @customers.each do |customer| %>
             <tr>
-              <td><%= customer.first_name %></td>
-              <td><%= customer.last_name %></td>
+              <td><%= customer.nome %></td>
+              <td><%= customer.sobrenome %></td>
               <td><%= link_to 'Detalhes', edit_customer_path(customer) %> | <%= link_to 'Excluir', customer, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             </tr>
           <% end %>

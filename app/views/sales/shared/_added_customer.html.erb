@@ -20,8 +20,8 @@
         <%= fields_for @sale do |f|%>
           <%= f.fields_for :customer, Customer.find(@sale.customer.id) do |e| %>
             <tr>
-              <td><%= e.text_field :first_name, :class => "form-control", :placeholder => "Nome", :readonly => true %></td>
-              <td><%= e.text_field :last_name, :class => "form-control", :placeholder => "Sobrenome", :readonly => true %></td>
+              <td><%= e.text_field :nome, :class => "form-control", :placeholder => "Nome", :readonly => true %></td>
+              <td><%= e.text_field :sobrenome, :class => "form-control", :placeholder => "Sobrenome", :readonly => true %></td>
               <td><%= e.text_field :email_address, :class => "form-control", :placeholder => "exemplo@eemplo.com", :readonly => true %></td>
               <td><%= e.text_field :phone_number, :class => "form-control", :placeholder => "(99) 9999-9999", :readonly => true %></td>
               <td><%= e.text_field :address, :class => "form-control", :placeholder => "Endereço", :readonly => true %></td>
