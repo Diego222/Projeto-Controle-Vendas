@@ -10,5 +10,6 @@ class Item < ActiveRecord::Base
 
 	default_scope :order => 'sku ASC'
 
+
 	
 end

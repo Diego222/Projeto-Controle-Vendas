@@ -55,4 +55,6 @@ class Sale < ActiveRecord::Base
     self.save
 	end
 
+	
+
 end
