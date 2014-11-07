@@ -6,6 +6,7 @@
           <th>Código</th>
           <th>Gerado em</th>
           <th>Cliente</th>
+          <th>Funcionário</th>
           <th>Total</th>
           <th>Pago</th>
           <th>Balanço</th>
@@ -20,6 +21,7 @@
             <td><%= sale.id %></td>
             <td><%= sale.created_at.strftime("%d/%m/%y %I:%M:%S %p")  %></td>
             <td><%= sale.customer.blank? ? '-' : sale.customer.nome %></td>
+            <td><%= sale.funcionario.blank? ? '-' : sale.funcionario.nome %></td>
             <td><%= number_to_currency sale.total_amount %></td>
             <td><%= number_to_currency sale.paid_total %></td>
             <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Pago" : "#{number_to_currency sale.remaining_balance}" %></td>

@@ -12,6 +12,10 @@ $(document).ready(function(){
 	  $('.customer_search').click();
 	});
 
+	$(document).on("keypress", '.funcionario_search_input', function(){
+	  $('.funcionario_search').click();
+	});
+
 	$(document).on("change", "#sale_comments_comments", function(){
 		$('.sale_comments').click();
 	});

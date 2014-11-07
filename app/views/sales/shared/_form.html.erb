@@ -7,6 +7,7 @@
         <li class="active"><a href="#sale" data-toggle="tab">Venda</a></li>
         <li><a href="#customer" data-toggle="tab">Cliente</a></li>
         <li><a href="#comments" data-toggle="tab">Comentários</a></li>
+        <li><a href="#funcionario" data-toggle="tab">Funcionário</a></li>
       </ul>
 
       <!-- Tab panes -->
@@ -25,6 +26,14 @@
 
         <div class="tab-pane" id="comments">
           <%= render :partial => 'sales/shared/comments', :object => @sale %>
+        </div>
+
+        <div class="tab-pane" id="funcionario">
+          <%= render :partial => 'sales/shared/funcionario_info', :object => @sale %>
+
+          <div class="added_funcionario">
+            <%= render :partial => 'sales/shared/added_funcionario' %>
+          </div>
         </div>
 
         <%= render :partial => 'sales/shared/modals' %>

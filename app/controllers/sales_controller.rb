@@ -69,6 +69,30 @@ class SalesController < ApplicationController
     end
   end
 
+  def update_funcionario_options
+    set_sale
+    populate_items
+    @available_funcionarios = Funcionario.find(:all, :conditions => ['nome LIKE ? OR cargo LIKE ?', "%#{params[:search][:funcionario_nome]}%", "%#{params[:search][:funcionario_nome]}%"], :limit => 5)
+
+    respond_to do |format|
+      format.js { ajax_refresh }
+    end
+  end
+
+  def create_funcionario_association
+    set_sale
+
+    unless @sale.blank? || params[:funcionario_id].blank?
+      @sale.funcionario_id = params[:funcionario_id]
+      @sale.save
+    end
+
+
+    respond_to do |format|
+      format.js { ajax_refresh }
+    end
+  end
+
   def create_customer_association
     set_sale
 
@@ -310,7 +334,7 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:amount, :tax, :discount, :total_amount, :tax_paid, :amount_paid, :paid, :payment_type_id, :customer_id, :comments, :line_items_attributes, :items_attributes)
+      params.require(:sale).permit(:amount, :tax, :discount, :total_amount, :tax_paid, :amount_paid, :paid, :payment_type_id, :customer_id, :comments, :line_items_attributes, :items_attributes, :funcionario_id)
     end
 
     def populate_items

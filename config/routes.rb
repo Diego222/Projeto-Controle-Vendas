@@ -49,11 +49,13 @@ PushvendorPos::Application.routes.draw do
     collection do
       get 'update_line_item_options'
       get 'update_customer_options'
+      get 'update_funcionario_options'
       get 'create_line_item'
       get 'update_totals'
       get 'add_item'
       get 'remove_item'
       get 'create_customer_association'
+      get 'create_funcionario_association'
       get 'create_custom_item'
       get 'create_custom_customer'
       get 'add_comment'
