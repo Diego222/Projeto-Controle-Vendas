@@ -9,19 +9,18 @@ class Sale < ActiveRecord::Base
 	accepts_nested_attributes_for :line_items, :allow_destroy => true
 	accepts_nested_attributes_for :items, :allow_destroy => true
 	accepts_nested_attributes_for :payments, :allow_destroy => true
+	
+	def zero
+		0.00
+	end
 
 	def remaining_balance
-		if self.total_amount.blank?
-			balance = 0.00
-		else
-			balance = self.total_amount - paid_total
-		end
+		balance = self.total_amount.blank? ? zero : remaining_to_pay
+		balance < 0 ? zero : balance.round(2)
+	end	
 
-		if balance < 0
-			return 0
-		else
-			return balance.round(2)
-		end
+	def remaining_to_pay
+		self.total_amount - paid_total
 	end
 
 	def get_discounted_amount
@@ -29,32 +28,24 @@ class Sale < ActiveRecord::Base
 	end
 
 	def paid_total
-		paid_total = 0.00
-		unless self.payments.blank?
-			for payment in self.payments
-				paid_total += payment.amount.blank? ? 0.00 : payment.amount
-			end
+		paid_total = zero
+		self.payments.each do |payment|
+			paid_total += payment.amount || zero
 		end
-		return paid_total
+		paid_total
+	end
+
+	def difference_between_paid_and_total
+		paid_total - self.total_amount
 	end
 
 	def change_due
-		if self.total_amount.blank?
-			return 0.00
-		else
-			if paid_total > self.total_amount
-				return paid_total - self.total_amount
-			else
-				return 0.00
-			end
-		end
+		return zero if self.total_amount.blank? || difference_between_paid_and_total < 0
+		difference_between_paid_and_total
 	end
 
-	def add_customer(customer_id)
-		self.customer_id = customer_id
-    self.save
+	def add_customer customer_id
+		self.update_attributes(customer_id: customer_id)
 	end
-
-	
 
 end
