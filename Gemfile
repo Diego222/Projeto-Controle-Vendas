@@ -48,4 +48,6 @@ group :test do
   gem 'rspec-rails'
 end  
 
+gem "highcharts-rails", "~> 3.0.0"
+
 

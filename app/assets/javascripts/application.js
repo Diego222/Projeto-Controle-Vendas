@@ -15,6 +15,7 @@
 //= require jquery.maskedinput
 //= require bootstrap-datepicker
 //= require bootstrap-select
+//= require highcharts
 //= require_tree .
 
 

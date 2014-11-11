@@ -9,6 +9,11 @@ class Sale < ActiveRecord::Base
 	accepts_nested_attributes_for :line_items, :allow_destroy => true
 	accepts_nested_attributes_for :items, :allow_destroy => true
 	accepts_nested_attributes_for :payments, :allow_destroy => true
+
+	def self.total_on(date)
+    	where("date(created_at) = ?",date).sum(:total_amount)
+  	end
+
 	
 	def zero
 		0.00

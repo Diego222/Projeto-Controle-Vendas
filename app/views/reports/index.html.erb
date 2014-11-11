@@ -4,6 +4,7 @@
 	  <ul class="nav nav-tabs hidden-print">
 	    <li class="active"><a href="#totals" data-toggle="tab">Total</a></li>
 	    <li><a href="#today" data-toggle="tab">Hoje</a></li>
+	    <li><a href="#graphic" data-toggle="tab">Gráfico</a></li>
 	  </ul>
   
 	  <div class="tab-content">
@@ -12,6 +13,9 @@
 	    </div>
 	    <div class="tab-pane" id="today">
 	    	<%= render :partial => 'template/sales_today' %>
+	    </div>
+	    <div class="tab-pane" id="graphic">
+	    	<%= render :partial => 'template/sales_graphic' %>
 	    </div>
 	  </div>
 	</div>
