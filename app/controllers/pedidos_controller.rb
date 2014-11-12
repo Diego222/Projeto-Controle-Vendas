@@ -5,7 +5,7 @@ class PedidosController < ApplicationController
   # GET /pedidos
   # GET /pedidos.json
   def index
-    @pedidos = Pedido.paginate(:page => params[:page], :per_page => 20)
+    @pedidos = Pedido.search(params[:search]).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /pedidos/1

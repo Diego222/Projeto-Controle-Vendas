@@ -1,5 +1,4 @@
 PushvendorPos::Application.routes.draw do
-
   
   resources :funcionarios
 

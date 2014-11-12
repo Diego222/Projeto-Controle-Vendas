@@ -8,8 +8,14 @@ class Item < ActiveRecord::Base
 	validates :price, :presence => true
 	validates :stock_amount, :presence => true
 
-	default_scope :order => 'sku ASC'
+	default_scope :order => 'name ASC'
 
+	def self.search(search)
+	  if search
+	    where('name LIKE ?', "%#{search}%")
+	  else
+	    scoped
+	  end
+	end
 
-	
 end

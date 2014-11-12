@@ -5,7 +5,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.paginate(:page => params[:page], :per_page => 20).where(:published => true)
+    #@items = Item.paginate(:page => params[:page], :per_page => 20).where(:published => true)
+    @items = Item.search(params[:search]).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /items/1
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item cadastrado com sucesso.' }
+        format.html { redirect_to '/items', notice: 'Item cadastrado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }
@@ -59,11 +60,9 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.published = false
-    @item.save
-
+    @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to items_url, notice: 'Item excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

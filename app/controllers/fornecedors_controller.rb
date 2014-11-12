@@ -5,7 +5,7 @@ class FornecedorsController < ApplicationController
   # GET /fornecedors
   # GET /fornecedors.json
   def index
-    @fornecedors = Fornecedor.paginate(:page => params[:page], :per_page => 20)
+    @fornecedors = Fornecedor.search(params[:search]).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /fornecedors/1

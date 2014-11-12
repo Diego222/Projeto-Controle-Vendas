@@ -5,7 +5,7 @@ class FuncionariosController < ApplicationController
   # GET /funcionarios
   # GET /funcionarios.json
   def index
-    @funcionarios = Funcionario.paginate(:page => params[:page], :per_page => 20)
+    @funcionarios = Funcionario.search(params[:search]).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /funcionarios/1

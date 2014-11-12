@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
 	def raw_sales
 		sales = Sale.find(:all)
 		total = 0.00

@@ -19,6 +19,7 @@
 //= require_tree .
 
 
+
 $(document).ready(function() {
 	$(".campo_telefone").mask("(99) 9999-9999");
 });

@@ -4,6 +4,10 @@ class SalesController < ApplicationController
 
   def index
     @sales = Sale.paginate(:page => params[:page], :per_page => 20, :order => 'id DESC')
+      respond_to do |format|
+      format.html
+      format.xls 
+    end
   end
 
   def new
@@ -43,6 +47,7 @@ class SalesController < ApplicationController
 
   # searched Items
   def update_line_item_options
+
     set_sale
     populate_items
 
@@ -152,6 +157,7 @@ class SalesController < ApplicationController
     end
 
     return_item_to_stock(params[:item_id], 1)
+    return_item_to_amount(params[:item_id], 1)
 
     update_totals
 
@@ -358,6 +364,12 @@ class SalesController < ApplicationController
     def return_item_to_stock(item_id, quantity)
       item = Item.find(item_id)
       item.stock_amount = item.stock_amount + quantity
+      item.save
+    end
+
+    def return_item_to_amount(item_id, quantity)
+      item = Item.find(item_id)
+      item.amount_sold = item.amount_sold - quantity
       item.save
     end
 
