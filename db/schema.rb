@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030160952) do
+ActiveRecord::Schema.define(version: 20141113112946) do
 
   create_table "customers", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "email_address"
     t.string   "phone_number"
     t.string   "address"
@@ -82,7 +80,10 @@ ActiveRecord::Schema.define(version: 20141030160952) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "item_category_id"
+    t.integer  "fornecedor_id"
   end
+
+  add_index "items", ["fornecedor_id"], name: "index_items_on_fornecedor_id", using: :btree
 
   create_table "line_items", force: true do |t|
     t.integer  "item_id"

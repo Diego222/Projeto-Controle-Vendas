@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.sku = "CI#{(rand(5..30) + rand(5..30)) * 11}_#{(rand(5..30) + rand(5..30)) * 11}"
     @item.published = true
 
     respond_to do |format|
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item atualizado com sucesso.' }
+        format.html { redirect_to '/items', notice: 'Item atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,6 +65,12 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item excluido com sucesso.' }
       format.json { head :no_content }
+      #@item.published = false
+      #@item.save
+
+      #respond_to do |format|
+       # format.html { redirect_to '/items', notice: 'Item excluído com sucesso.' }
+        #format.json { head :no_content }
     end
   end
 
@@ -82,6 +89,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:image_url, :sku, :name, :description, :price, :stock_amount, :cost_price, :item_category_id, :published)
+      params.require(:item).permit(:image_url, :sku, :name, :description, :price, :stock_amount, :cost_price, :item_category_id, :fornecedor_id, :published)
     end
 end

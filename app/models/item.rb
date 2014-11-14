@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
 	has_many :line_items
 	belongs_to :item_category
+	belongs_to :fornecedor
 
 	validates :sku, :presence => true, :uniqueness => true
 	validates_presence_of :name, :message => "em branco"

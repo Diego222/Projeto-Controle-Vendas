@@ -55,6 +55,7 @@
         <div class="form-group">
           <label>Telefone</label>
           <%= f.text_field :telefone, :class => "campo_telefone form-control", :placeholder => "(99) 9999-9999" %>
+          <%= error_tag @fornecedor, :telefone %>
         </div>
       </div>
       
