@@ -29,8 +29,26 @@ describe Sale do
 				expect(sale_2.change_due).to eq 0.0
 			end
 		end
-
-		context 'when total amount is not nil' do
-		end
 	end
+	
+
+
+		describe '#change_due' do
+			context 'when difference between paid and total < 0' do
+				let(:sale_3) { create(:sale, total_amount: 10) }
+				it 'returns zero' do
+					Sale.any_instance.should_receive(:paid_total).and_return(5)
+					expect(sale_3.change_due).to eq 0.0
+				end
+			end
+		end
+		
+
+		describe '#difference_between_paid_and_total' do
+			let(:sale_4) { create(:sale, total_amount: 10) }
+			it 'returns difference' do
+				Sale.any_instance.should_receive(:paid_total).and_return(5)
+				expect(sale_4.difference_between_paid_and_total).to eq -5
+			end
+		end
 end
