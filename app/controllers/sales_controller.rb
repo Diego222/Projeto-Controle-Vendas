@@ -30,7 +30,6 @@ class SalesController < ApplicationController
   end
 
 
-
   def destroy
     set_sale
 

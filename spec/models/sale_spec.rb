@@ -51,4 +51,12 @@ describe Sale do
 				expect(sale_4.difference_between_paid_and_total).to eq -5
 			end
 		end
+
+		describe '#remaining_balance' do
+			let(:sale_5) { create(:sale, total_amount: 20)}
+			it 'returns remaining balance' do
+				Sale.any_instance.should_receive(:paid_total).and_return(20)
+				expect(sale_5.remaining_balance).to eq 0.0
+			end
+		end
 end

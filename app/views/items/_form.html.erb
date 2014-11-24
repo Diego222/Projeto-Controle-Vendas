@@ -14,6 +14,7 @@
         <div class="form-group">
           <label>Categoria</label>
           <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, {prompt: "Selecione uma Categoria"}, {class: "form-control"}  %>
+          <%= error_tag @item, :item_category %>
         </div>
       </div>
       <div class="col-sm-6">

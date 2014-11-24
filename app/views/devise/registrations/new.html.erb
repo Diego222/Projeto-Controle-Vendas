@@ -12,7 +12,7 @@
   <br>
 
   <div class="control-group">
-    <%= f.label :password, "Senha", :class => 'control-label' %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
+    <%= f.label :password, "Senha", :class => 'control-label' %> <% if @validatable %><i> A senha deve conter no mínimo <%= @minimum_password_length %> caracteres</i><% end %>
     <div class="controls">	
       <%= f.password_field :password, :class => 'form-control', autocomplete: "off" %>
     </div>
