@@ -83,9 +83,33 @@ $(document).ready(function(){
 
 	$("#new_customer").validate({
 		rules: {
-			"customer[first_name]": {required: true },
-			"customer[last_name]": {required: true },
+			"customer[nome]": {required: true },
+			"customer[sobrenome]": {required: true },
 			"customer[email_address]": {email: true }
+		}
+	});
+
+	$("#new_fornecedor").validate({
+		rules: {
+			"fornecedor[empresa]": {required: true },
+			"fornecedor[telefone]": {required: true },
+			"fornecedor[email]": {email: true }
+		}
+	});
+
+	$("#new_funcionario").validate({
+		rules: {
+			"funcionario[nome]": {required: true },
+			"funcionario[data_nascimento]": {required: true, date: true },
+			"funcionario[endereco]": {required: true },
+			"funcionario[cidade]": {required: true },
+			"funcionario[estado]": {required: true },
+			"funcionario[cep]": {required: true },
+			"funcionario[telefone]": {required: true },
+			"funcionario[admissao]": {required: true, date: true },
+			"funcionario[cargo]": {required: true },
+			"funcionario[cpf]": {required: true },
+			"funcionario[identidade]": {required: true },
 		}
 	});
 

@@ -49,6 +49,7 @@
         <div class="form-group">
           <label>Preço de Custo</label>
           <%= f.text_field :cost_price, :class => "form-control", :placeholder => "Preço de Custo" %>
+          <%= error_tag @item, :cost_price %>
         </div>
       </div>
       <div class="col-sm-6">
