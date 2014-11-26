@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141113112946) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -118,11 +121,11 @@ ActiveRecord::Schema.define(version: 20141113112946) do
   add_index "pedidos", ["fornecedor_id"], name: "index_pedidos_on_fornecedor_id", using: :btree
 
   create_table "sales", force: true do |t|
-    t.decimal  "amount",           precision: 8,  scale: 2
-    t.decimal  "total_amount",     precision: 8,  scale: 2
-    t.decimal  "remaining_amount", precision: 10, scale: 0
-    t.decimal  "discount",         precision: 8,  scale: 2
-    t.decimal  "tax",              precision: 8,  scale: 2
+    t.decimal  "amount",           precision: 8, scale: 2
+    t.decimal  "total_amount",     precision: 8, scale: 2
+    t.decimal  "remaining_amount"
+    t.decimal  "discount",         precision: 8, scale: 2
+    t.decimal  "tax",              precision: 8, scale: 2
     t.integer  "customer_id"
     t.text     "comments"
     t.datetime "created_at"
